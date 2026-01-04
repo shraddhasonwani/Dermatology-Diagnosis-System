@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Skin Disease Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>AI Skin Disease Predictor</h1>
+
+        <div class="card">
+            <form id="uploadForm" method="POST" action="/predict" enctype="multipart/form-data">
+                <label for="fileInput">Upload a skin lesion image:</label>
+                <input type="file" name="file" id="fileInput" accept="image/*" capture="environment" required>
+
+                <img id="preview" src="#" alt="Image Preview" style="display:none;" />
+
+                <label for="age">Patient Age (optional):</label>
+                <input type="number" id="age" name="age" min="0" max="120" placeholder="e.g., 34">
+
+                <label for="gender">Patient Gender (optional):</label>
+                <select id="gender" name="gender">
+                    <option value="">-- Select --</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+
+                <button type="submit">Predict</button>
+            </form>
+
+            <div class="result" id="result"></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("fileInput").addEventListener("change", function(event) {
+            const file = event.target.files[0];
+            if (file && file.size > 5 * 1024 * 1024) {
+                alert("File too large! Please upload an image smaller than 5MB.");
+                event.target.value = "";
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function() {
+                const img = document.getElementById("preview");
+                img.src = reader.result;
+                img.style.display = "block";
+            }
+            reader.readAsDataURL(file);
+        });
+
+        document.getElementById("uploadForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const formData = new FormData();
+            const file = document.getElementById("fileInput").files[0];
+            const age = document.getElementById("age").value;
+            const gender = document.getElementById("gender").value;
+
+            formData.append("file", file);
+            formData.append("age", age);
+            formData.append("gender", gender);
+
+            fetch("/predict", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.text())
+            .then(result => {
+                document.getElementById("result").innerHTML = result;
+            })
+            .catch(error => {
+                document.getElementById("result").innerText = "Error: " + error;
+            });
+        });
+        function toggleDetails() {
+            const details = document.getElementById("details");
+            const button = document.querySelector(".toggle-btn");
+
+            if (details.style.display === "none") {
+                details.style.display = "block";
+                button.textContent = "🔒 Hide Details";
+            } else {
+                details.style.display = "none";
+                button.textContent = "🔎 Show Details";
+            }
+        }
+    </script>
+
+</body>
+</html>
