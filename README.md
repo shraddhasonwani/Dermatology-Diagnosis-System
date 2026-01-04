@@ -64,8 +64,8 @@ The model is trained on the **HAM10000 dataset**, which contains dermatoscopic i
 ## 👩‍💻 Author
 
 **Shraddha Sonwani**  
-MCA Student | Aspiring Web Developer  
-📍 Lucknow, India  
+MCA Student | Aspiring Java Developer  
+📍 Noida, India  
 
 ---
 
