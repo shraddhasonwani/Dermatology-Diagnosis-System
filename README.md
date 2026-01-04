@@ -1,15 +1,15 @@
-🩺 Dermatology Diagnosis System
+#🩺 Dermatology Diagnosis System
 
 An AI-based Dermatology Diagnosis System that helps in identifying different types of skin diseases using Deep Learning (CNN).
 The system allows users to upload a skin lesion image and predicts the disease class using a trained neural network model.
 
-📌 Project Overview
+#📌 Project Overview
 
 Skin diseases are often difficult to diagnose at an early stage. This project aims to assist dermatologists and users by providing a computer-aided diagnosis system using Convolutional Neural Networks (CNNs).
 
 The model is trained on the HAM10000 dataset, which contains dermatoscopic images of common skin lesions.
 
-🎯 Features
+#🎯 Features
 
 Upload skin lesion images
 
@@ -21,7 +21,7 @@ Web-based interface
 
 Fast and accurate results
 
-🧠 Technologies Used
+#🧠 Technologies Used
 Programming & Tools
 
 Python
@@ -42,7 +42,7 @@ Database (if used)
 
 MySQL / SQLite
 
-📊 Dataset
+#📊 Dataset
 
 Dataset Name: HAM10000 (Human Against Machine with 10000 training images)
 
@@ -52,7 +52,7 @@ Classes: 7 different skin lesion categories
 
 Note: Dataset is not included in this repository due to large size.
 
-🏗️ Project Structure
+#🏗️ Project Structure
 Dermatology-Diagnosis-System/
 │
 ├── static/              # CSS, JS, Images
@@ -63,25 +63,25 @@ Dermatology-Diagnosis-System/
 ├── README.md            # Project documentation
 └── .gitignore           # Ignored files
 
-▶️ How to Run the Project
-Step 1: Clone the repository
+#▶️ How to Run the Project
+##Step 1: Clone the repository
 git clone https://github.com/shraddhasonwani/Dermatology-Diagnosis-System.git
 cd Dermatology-Diagnosis-System
 
-Step 2: Create virtual environment
+##Step 2: Create virtual environment
 python -m venv venv
 venv\Scripts\activate
 
-Step 3: Install dependencies
+##Step 3: Install dependencies
 pip install -r requirements.txt
 
-Step 4: Run the application
+##Step 4: Run the application
 python app.py
 
-Step 5: Open browser
+##Step 5: Open browser
 http://127.0.0.1:5000/
 
-📈 Model Details
+#📈 Model Details
 
 Model Type: Convolutional Neural Network (CNN)
 
@@ -91,7 +91,7 @@ Input: Skin lesion image
 
 Output: Predicted skin disease class
 
-🚀 Future Enhancements
+#🚀 Future Enhancements
 
 Improve model accuracy
 
@@ -103,7 +103,7 @@ Add user authentication
 
 Mobile app integration
 
-👩‍💻 Author
+#👩‍💻 Author
 
 Shraddha Sonwani
 🎓 MCA Student
@@ -114,6 +114,6 @@ GitHub: https://github.com/shraddhasonwani
 
 LinkedIn: www.linkedin.com/in/shraddha-sonwani-a22b62247
 
-📜 License
+#📜 License
 
 This project is for educational purposes.
